@@ -6,11 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = "Welcome to BridgeLabz";
-  imgUrl: string = "https://www.bridgelabz.com/assets/images/BridgeLabz%20New%20Logo.svg";
-  userClickMessage: string = "";
+  title: string = "Input Event Binding with Validation";
+  userInput: string = "";
+  validationMessage: string = "";
 
-  onButtonClick(): void {
-    this.userClickMessage = "Button clicked! Event Binding works!";
+  onInputChange(event: Event): void {
+    const input = (event.target as HTMLInputElement).value;
+    this.userInput = input;
+
+    if (this.userInput.length < 3) {
+      this.validationMessage = "Input must be at least 3 characters long.";
+    } else {
+      this.validationMessage = "";
+    }
   }
 }

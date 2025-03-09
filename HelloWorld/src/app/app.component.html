@@ -1,8 +1,10 @@
 <h1>{{ title }}</h1>
-<img [src]="imgUrl" alt="BridgeLabz Logo" width="200"><br><br>
 
-<!-- Button with Event Binding -->
-<button (click)="onButtonClick()">Click Me</button>
+<!-- Input field with event binding -->
+<input type="text" (input)="onInputChange($event)" placeholder="Enter text">
 
-<!-- Display message after button click -->
-<p>{{ userClickMessage }}</p>
+<!-- Display user input -->
+<p>You entered: {{ userInput }}</p>
+
+<!-- Display validation message -->
+<p *ngIf="validationMessage" style="color: red;">{{ validationMessage }}</p>
